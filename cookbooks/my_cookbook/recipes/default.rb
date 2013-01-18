@@ -6,12 +6,15 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-template "/tmp/message" do
-  source "message.erb"
-  variables(
-    :hi => "Hallo",
-    :world => "Welt",
-    :from => node['fqdn']
-  )
+g = gem_package "ipaddress" do
+  action :nothing
 end
+ 
+g.run_action(:install)
+ 
+Gem.clear_paths
+require 'ipaddress'
 
+
+ip = IPAddress("192.168.0.1/24")
+Chef::Log.info("Netmask of #{ip}: #{ip.netmask}")
