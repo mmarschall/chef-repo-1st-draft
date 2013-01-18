@@ -30,6 +30,8 @@ end
   end
 end
 
+raise RuntimeError.new("Pow!!!")
+
 service node['ntp']['service'] do
   supports :status => true, :restart => true
   action [ :enable, :start ]
