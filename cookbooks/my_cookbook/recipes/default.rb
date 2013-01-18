@@ -6,15 +6,5 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-g = gem_package "ipaddress" do
-  action :nothing
-end
- 
-g.run_action(:install)
- 
-Gem.clear_paths
-require 'ipaddress'
-
-
-ip = IPAddress("192.168.0.1/24")
-Chef::Log.info("Netmask of #{ip}: #{ip.netmask}")
+ip = '10.10.0.0/24'
+Chef::Log.info("Netmask of #{ip}: #{netmask(ip)}")
