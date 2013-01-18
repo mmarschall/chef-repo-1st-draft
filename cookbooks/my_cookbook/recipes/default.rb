@@ -6,5 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-ip = '10.10.0.0/24'
-Chef::Log.info("Netmask of #{ip}: #{netmask(ip)}")
+capistrano_deploy_dirs do
+  deploy_to "/srv"
+end
