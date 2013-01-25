@@ -6,6 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-capistrano_deploy_dirs do
-  deploy_to "/srv"
+ENV['MESSAGE'] = 'Hello from Chef'
+
+execute 'print value of environment variable $MESSAGE' do
+  command 'echo $MESSAGE > /tmp/message'
 end
