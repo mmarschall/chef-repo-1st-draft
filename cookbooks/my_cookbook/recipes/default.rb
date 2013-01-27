@@ -6,8 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-ENV['MESSAGE'] = 'Hello from Chef'
+message = 'Hello argument!'
 
-execute 'print value of environment variable $MESSAGE' do
-  command 'echo $MESSAGE > /tmp/message'
+execute 'echo message into tmp file' do
+  command "echo #{message} > /tmp/message"
 end
