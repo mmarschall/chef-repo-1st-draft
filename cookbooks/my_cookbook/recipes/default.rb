@@ -6,8 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-message = 'Hello argument!'
+node.override['my_cookbook']['version'] = "1.5"
 
-execute 'echo message into tmp file' do
-  command "echo #{message} > /tmp/message"
+execute 'echo the path attribute' do
+  command "echo #{node['my_cookbook']['version']}"
 end
