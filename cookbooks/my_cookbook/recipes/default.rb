@@ -6,8 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-node.override['my_cookbook']['version'] = "1.5"
+servers = search(:node, "platform:ubuntu")
 
-execute 'echo the path attribute' do
-  command "echo #{node['my_cookbook']['version']}"
+servers.each do |srv|
+  Chef::Log.info("#{srv.name}: #{srv.platform}")
 end
