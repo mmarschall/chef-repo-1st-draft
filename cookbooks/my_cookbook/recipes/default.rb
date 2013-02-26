@@ -6,8 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-node.override['my_cookbook']['version'] = "1.5"
-
-execute 'echo the path attribute' do
-  command "echo #{node['my_cookbook']['version']}"
+hook = data_bag_item('hooks', 'RequestBin')
+http_request "callback" do
+  url hook['url']
 end
