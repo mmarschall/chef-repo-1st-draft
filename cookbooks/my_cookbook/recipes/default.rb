@@ -1,4 +1,4 @@
-#
+
 # Cookbook Name:: my_cookbook
 # Recipe:: default
 #
@@ -6,8 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-node.override['my_cookbook']['version'] = "1.5"
 
-execute 'echo the path attribute' do
-  command "echo #{node['my_cookbook']['version']}"
-end
+Log.info("Running on ubuntu") if node.platform['ubuntu']
+Log.info("Running on a debian derivate") if platform_family?('debian')
