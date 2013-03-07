@@ -4,8 +4,8 @@
 system('chefvm use agilewebops')
 
 Vagrant::Config.run do |config|
-  config.vm.box = "opscode-ubuntu-12.04"
-  config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-12.04.box"
+  config.vm.box = "opscode-ubuntu-12.04_chef-11.2.0"
+  config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_chef-11.2.0.box"
   
   config.vm.provision :chef_client do |chef|
    chef.chef_server_url = "https://api.opscode.com/organizations/agilewebops"

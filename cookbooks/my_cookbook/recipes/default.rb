@@ -6,6 +6,10 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-
-Log.info("Running on ubuntu") if node.platform['ubuntu']
-Log.info("Running on a debian derivate") if platform_family?('debian')
+template "/etc/logrotate.conf" do
+  source "logrotate.conf.erb"
+  variables(
+    :how_often => "daily",
+    :keep => "31"
+  )
+end
