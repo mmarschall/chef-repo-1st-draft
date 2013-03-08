@@ -17,6 +17,7 @@ p = bash 'install augeas' do
     make
     make install
   EOH
+  action :nothing
   not_if "test -f /opt/chef/embedded/bin/augtool"
 end
 p.run_action(:run)
@@ -25,7 +26,8 @@ chef_gem "ruby-augeas"
 
 require 'augeas'
 
-host = Augeas::open do |aug| 
+Augeas::open do |aug| 
   aug.set("/files/etc/ssh/sshd_config/AcceptEnv[last()]/01", "FOO")
   aug.save!
 end
+Chef::Log.info("Added FOO as AcceptEnv in /etc/sshd_config")
