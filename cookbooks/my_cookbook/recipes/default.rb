@@ -6,12 +6,13 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-template "/tmp/backends.conf" do
-  mode 0444
-  owner "root"
-  group "root"
-  variables({
-    :enabled => true,
-    :backends => ["10.0.0.10", "10.0.0.11", "10.0.0.12"]
-  })
+include_recipe "apt"
+
+apt_repository "s3tools" do
+  uri "http://s3tools.org/repo/deb-all"
+  components ["stable/"]
+  key "http://s3tools.org/repo/deb-all/stable/s3tools.key"
+  action :add
 end
+
+package "s3cmd"
