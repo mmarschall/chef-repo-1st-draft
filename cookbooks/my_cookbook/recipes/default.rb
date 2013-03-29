@@ -6,6 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-template "/tmp/message" do
-  source "message.erb"
-end
+node.override['openssh']['server']['permit_root_login'] = "no"
+
+include_recipe 'openssh'
