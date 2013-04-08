@@ -6,7 +6,9 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-node.override['openssh']['server']['permit_root_login'] = "no"
-node.override['openssh']['server']['password_authentication'] = "no"
+include_recipe "users"
 
-include_recipe 'openssh'
+users_manage "staff" do
+  group_id 50
+  action [ :remove, :create ]
+end
