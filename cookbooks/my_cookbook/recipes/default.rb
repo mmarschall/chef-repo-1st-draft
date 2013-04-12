@@ -7,6 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 node.default['authorization']['sudo']['passwordless'] = true
-node.default['authorization']['sudo']['groups'] = ["staff"]
+node.default['authorization']['sudo']['groups'] = ["staff", "vagrant"]
 
 include_recipe "sudo"
