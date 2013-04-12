@@ -6,9 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe "users"
+node.default['authorization']['sudo']['passwordless'] = true
+node.default['authorization']['sudo']['groups'] = ["staff"]
 
-users_manage "staff" do
-  group_id 50
-  action [ :remove, :create ]
-end
+include_recipe "sudo"
