@@ -1,4 +1,20 @@
+<<<<<<< HEAD
+=======
+.vagrant
+Berksfile.lock
+Gemfile.lock
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+>>>>>>> chef-vendor-apt
 .bundle
 .cache
 .kitchen
 bin
+<<<<<<< HEAD
+=======
+.kitchen.local.yml
+>>>>>>> chef-vendor-apt
