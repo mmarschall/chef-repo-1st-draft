@@ -21,14 +21,6 @@ package "apt-cacher-ng" do
   action :install
 end
 
-<<<<<<< HEAD
-service "apt-cacher-ng" do
-  supports :restart => true, :status => false
-  action :enable
-end
-
-=======
->>>>>>> chef-vendor-apt
 template "/etc/apt-cacher-ng/acng.conf" do
   source "acng.conf.erb"
   owner "root"
@@ -37,15 +29,9 @@ template "/etc/apt-cacher-ng/acng.conf" do
   notifies :restart, "service[apt-cacher-ng]"
 end
 
-<<<<<<< HEAD
-# Reopen resource w/ start in case config issue causes startup to fail
-service "apt-cacher-ng" do
-  action :start
-=======
 service "apt-cacher-ng" do
   supports :restart => true, :status => false
   action [:enable, :start]
->>>>>>> chef-vendor-apt
 end
 
 #this will help seed the proxy
