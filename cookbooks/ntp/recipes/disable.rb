@@ -12,8 +12,8 @@ case node['platform']
 when "ubuntu","debian"
 	template "/etc/default/ntpdate" do
 		source "ntpdate.erb"
-		owner "root"
-		group root_group
+		owner node['ntp']['conf_owner']
+		group node['ntp']['conf_group']
 		mode "0644"
 		variables(
 			:disable => TRUE

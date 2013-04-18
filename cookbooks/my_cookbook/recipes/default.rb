@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-node.default['authorization']['sudo']['passwordless'] = true
-node.default['authorization']['sudo']['groups'] = ["staff", "vagrant"]
-
-include_recipe "sudo"
+sudo 'mma' do
+  template    'staff_member.erb' # local cookbook template
+  variables   :cmds => ['/etc/init.d/ssh restart']
+end
