@@ -28,4 +28,6 @@ file "#{app_home}/public/index.html" do
   content "<h1>Hello World!</h1>"
 end
 
-nginx_site "#{app_name}"  
+nginx_site "#{app_name}" do
+  enable false
+end 
