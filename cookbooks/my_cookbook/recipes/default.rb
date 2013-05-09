@@ -6,12 +6,34 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-node.override['wordpress']['db']['database'] = "my_wordpress"
-node.override['wordpress']['db']['user'] = "me"
-node.override['wordpress']['db']['password'] = "my_password_11"
 
-include_recipe "apt"
-include_recipe 'wordpress'
+# needs in Rails 4.0 Gemfile
+# gem 'therubyracer', platforms: :ruby
+# gem 'unicorn'
+# enabled!!!
 
-# [2013-04-27T19:29:44+00:00] INFO: Navigate to 'http://vagrant.vm/wp-admin/install.php' to complete wordpress installation
+application "rails-app" do
+  packages %w[ruby1.9.3 runit git sqlite3 libsqlite3-dev]
 
+  path "/usr/local/www/rails-app"
+  owner "www-data"
+  group "www-data"
+
+  environment_name "development"
+
+  repository "https://github.com/mmarschall/rails-app.git"
+
+  rails do 
+    gems %w[bundler]
+
+    database_template "sqlite3_database.yml.erb"
+
+    database do
+      adapter "sqlite3"
+      database "db/rails-app.sqlite3"
+    end
+  end
+
+  unicorn do
+  end
+end
