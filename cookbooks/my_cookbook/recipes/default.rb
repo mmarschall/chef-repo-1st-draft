@@ -12,6 +12,12 @@
 # gem 'unicorn'
 # enabled!!!
 
+include_recipe "apt"
+include_recipe "varnish::apt_repo"
+
+node.override['varnish']['storage_file'] = "/var/lib/varnish/vagrant/varnish_storage.bin"
+include_recipe "varnish"
+
 application "rails-app" do
   packages %w[ruby1.9.3 runit git sqlite3 libsqlite3-dev]
 
