@@ -12,7 +12,6 @@ ohai "reload_lldp" do
 end
 
 file "#{node['ohai']['plugin_path']}/lldp.rb" do
-  source "plugins/lldp.rb"
   owner "root"
   group "root"
   mode 00755
