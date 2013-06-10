@@ -1,8 +1,5 @@
 {
   "id": "mma",
-  "ssh_keys": [
-    "ssh-rsa AAA345...bla== mma@laptop"
-  ],
-  "groups": [ "staff"],
-  "shell": "\/bin\/bash"
+  "htpasswd": "{SHA}AcrFI+aFqjxDLBKctCtzW/LkVxg=",
+  "groups": "sysadmin"
 }
