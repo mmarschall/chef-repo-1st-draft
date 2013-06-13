@@ -7,6 +7,8 @@ Vagrant::Config.run do |config|
   config.vm.box = "opscode-ubuntu-12.04_chef-11.4.4"
   config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_chef-11.4.4.box"
 
+  # nagios3
+  config.vm.forward_port 80, 4444
   # unicorn, Rails app
   config.vm.forward_port 8080, 4567
   # varnish
