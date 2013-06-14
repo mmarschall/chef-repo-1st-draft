@@ -23,5 +23,5 @@ heartbeat "heartbeat" do
 
   resources "192.168.0.100"
 
-  search "name:node*"
+  search "name:ha*"
 end
