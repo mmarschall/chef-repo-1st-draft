@@ -16,12 +16,12 @@ heartbeat "heartbeat" do
   keepalive 2
   warntime 5
   logfacility "syslog"
-  interface "eth0"
+  interface "eth1"
   mode "bcast"
   udpport 694
   auto_failback true
 
-  resources "10.0.2.100"
+  resources "192.168.0.100"
 
-  search "name:ha*"
+  search "name:node*"
 end
