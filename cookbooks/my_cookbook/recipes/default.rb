@@ -6,22 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe "heartbeat"
+node.override['haproxy']['httpchk'] = true
+node.override['haproxy']['x_forwarded_for'] = true
+node.override['haproxy']['app_server_role'] = "web_server"
 
-heartbeat "heartbeat" do
-  authkeys "MySecrectAuthPassword"
-  autojoin "none"
-  deadtime 15
-  initdead 60
-  keepalive 2
-  warntime 5
-  logfacility "syslog"
-  interface "eth1"
-  mode "bcast"
-  udpport 694
-  auto_failback true
-
-  resources "192.168.0.100"
-
-  search "name:ha*"
-end
+include_recipe "haproxy::app_lb"
