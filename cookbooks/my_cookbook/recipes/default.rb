@@ -8,10 +8,9 @@
 #
 include_recipe "iptables"
 iptables_rule "ssh"
-iptables_rule "http"
 
-execute "ensure iptables is activated" do
-  command "/usr/sbin/rebuild-iptables"
-  creates "/etc/iptables/general"
-  action :run
+include_recipe "fail2ban"
+
+file "/etc/fail2ban/jail.local" do
+  
 end
