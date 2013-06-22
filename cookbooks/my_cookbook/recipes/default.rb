@@ -9,20 +9,16 @@
 include_recipe "iptables"
 iptables_rule "ssh"
 
-include_recipe "fail2ban"
-
-file "/etc/fail2ban/jail.local" do
-  content <<-EOS
-  [ssh-ddos]
-
-enabled  = true
-port     = ssh
-filter   = sshd-ddos
-logpath  = /var/log/auth.log
-maxretry = 6
-  EOS
-    owner "root"
-    group "root"
-    mode 0644
-    notifies :restart, "service[fail2ban]"
+ohai "reload_iptables_plugin" do
+  action :nothing
+  plugin "iptables"
 end
+
+file "#{node['ohai']['plugin_path']}/iptables.rb" do
+  owner "root"
+  group "root"
+  mode 00755
+  notifies :reload, 'ohai[reload_iptables_plugin]', :immediately
+end
+
+include_recipe "ohai"

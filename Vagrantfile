@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# see: https://github.com/opscode/bento
+# and: https://github.com/schisamo/vagrant-omnibus
+
 system('chefvm use agilewebops')
 
 def define_node(config, node_name, ip_address=nil, role=nil)
@@ -19,8 +22,10 @@ def define_node(config, node_name, ip_address=nil, role=nil)
 end
 
 Vagrant.configure("2") do |config|
+  config.omnibus.chef_version = :latest
+
   config.vm.box = "opscode-ubuntu-12.04_chef-11.4.4"
-  config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_chef-11.4.4.box"
+  config.vm.box_url = "https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box"
 
   define_node(config, :server)
 end
