@@ -1,0 +1,5 @@
+{
+    "ipaddress": "10.0.2.15",
+    "name": "server",
+    "run_list": []
+}
