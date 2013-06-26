@@ -6,19 +6,9 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe "iptables"
-iptables_rule "ssh"
+node.default['my_cookbook']['greeting'] = "Hello!"
 
-ohai "reload_iptables_plugin" do
-  action :nothing
-  plugin "iptables"
+template '/tmp/greeting.txt' do
+  variables greeting: node['my_cookbook']['greeting']
+  #variables greeting: 'Hello!'
 end
-
-file "#{node['ohai']['plugin_path']}/iptables.rb" do
-  owner "root"
-  group "root"
-  mode 00755
-  notifies :reload, 'ohai[reload_iptables_plugin]', :immediately
-end
-
-include_recipe "ohai"
