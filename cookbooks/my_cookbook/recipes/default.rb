@@ -6,9 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-node.default['my_cookbook']['greeting'] = "Hello!"
-
-template '/tmp/greeting.txt' do
-  variables greeting: node['my_cookbook']['greeting']
-  #variables greeting: 'Hello!'
-end
+include_recipe "apt"
+include_recipe "ntp"
+include_recipe "chef-client"
