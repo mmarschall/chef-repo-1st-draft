@@ -1,20 +1,35 @@
 {
-  "sha": "cf489b9f8e9c24f672397c95e90a21fba1cba3f7",
+  "sha": "aada0ec87bcc01ea7bc03571227d7912eecc30a7",
   "sources": {
     "my_cookbook": {
       "path": "./cookbooks/my_cookbook"
     },
-    "chef-client": {
-      "locked_version": "3.0.4"
-    },
-    "cron": {
-      "locked_version": "1.2.4"
-    },
     "apt": {
       "locked_version": "2.0.0"
     },
-    "ntp": {
-      "locked_version": "1.3.2"
+    "git": {
+      "locked_version": "2.5.2"
+    },
+    "dmg": {
+      "locked_version": "1.1.0"
+    },
+    "build-essential": {
+      "locked_version": "1.4.0"
+    },
+    "yum": {
+      "locked_version": "2.3.0"
+    },
+    "windows": {
+      "locked_version": "1.10.0"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.4"
+    },
+    "runit": {
+      "locked_version": "1.1.6"
+    },
+    "python": {
+      "locked_version": "1.3.4"
     }
   }
 }
