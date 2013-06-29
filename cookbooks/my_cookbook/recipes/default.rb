@@ -6,5 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-
-python_pip "blueprint"
+file "/tmp/greeting.txt" do
+  content node['my_cookbook']['greeting']
+end

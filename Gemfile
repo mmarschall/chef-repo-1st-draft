@@ -12,3 +12,5 @@ gem 'guard-bundler'
 gem 'guard-rspec'
 gem 'rb-fsevent'
 gem 'terminal-notifier-guard'
+gem 'test-kitchen', :group => :integration
+gem 'kitchen-vagrant', :group => :integration

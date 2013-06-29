@@ -1,1 +1,1 @@
-default['my_cookbook']['backup']['host'] = "10.0.0.12"
+default['my_cookbook']['greeting'] = "Ohai, Chefs!"
