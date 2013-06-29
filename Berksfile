@@ -1,1 +1,4 @@
-cookbook 'greeting', path: 'cookbooks/greeting'
+site :opscode
+
+cookbook 'apt'
+cookbook 'nagios'
